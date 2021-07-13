@@ -1,0 +1,22 @@
+$green: #27ae60;
+body {
+    background-color: #2b2b2b;
+}
+.alert-success {
+    background: $green;
+    color: white;
+}
+.text-success {
+    color: $green;
+}
+.list-group-item {
+    background-color: inherit;
+    border-color: #414142;
+    color: white;
+}
+.list-group {
+    margin: 10px;
+}
+.alert {
+    margin: 10px;
+}

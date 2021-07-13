@@ -5,7 +5,9 @@
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
-        "lint": "npx prettierx --write ."
+        "lint": "npx prettierx --write .",
+        "scss": "npx sass --style=compressed scss:css",
+        "build": "npm run lint && npm run scss"
     },
     "keywords": [],
     "author": "",
