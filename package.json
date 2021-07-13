@@ -1,0 +1,19 @@
+{
+    "name": "statuspage",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "lint": "npx prettierx --write ."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1",
+        "mustache": "^4.2.0",
+        "prettierx": "^0.19.0",
+        "sass": "^1.35.2"
+    }
+}
