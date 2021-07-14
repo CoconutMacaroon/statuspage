@@ -18,6 +18,16 @@
         <link rel="stylesheet" href="css/style.css">
         <style></style>
         <title>Status Page</title>
+        <script>
+            const serverStatus = JSON.parse(
+                '{"Dashboard" : "Operational", "Pi-hole" : "Not-operational"}'
+            );
+            const template = `<li class="list-group-item"><div class="d-flex"><span>Notifications</span><span class="ms-auto text-success">Operational</span></div></li>`;
+            // for(let [key, value] of Object.entries(serverStatus)) {console.log(key, value);}
+            for (let [key, value] of Object.entries(serverStatus)) {
+                console.log(`<li class="list-group-item"><div class="d-flex"><span>Notifications</span><span class="ms-auto text-success">Operational</span></div></li>`);
+            }
+        </script>
     </head>
     <body>
         <script
