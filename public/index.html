@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        >
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/twbs/icons@1.5.0/font/bootstrap-icons.css"
+            integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU"
+            crossorigin="anonymous"
+        >
+        <link rel="stylesheet" href="css/style.css">
+        <title>Status Page</title>
+    </head>
+    <body>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const serverStatus = JSON.parse(
+                    '{"Dashboard" : "Operational", "Pi-hole" : "Not-operational"}'
+                );
+                const template = `<li class="list-group-item"><div class="d-flex"><span>{{service}}</span><span class="ms-auto text-success">{{status}}</span></div></li>`;
+                let list = "";
+                for (let [service, status] of Object.entries(serverStatus)) {
+                    list += `<li class="list-group-item"><div class="d-flex"><span>${service}</span><span class="ms-auto text-success">${status}</span></div></li>`;
+                }
+                document.getElementById("service-status-list").innerHTML = list;
+            });
+        </script>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-white fs-4" href="#"
+                        ><span class="fw-bold">Blast Off Network</span>
+                        Status</a
+                    >
+                </div>
+            </nav>
+        </header>
+        <div class="alert alert-success" style="border: 0px">
+            <div class="d-flex">
+                <span class="fw-bold">All Systems Operational</span
+                ><span class="ms-auto">Updated a few seconds ago</span>
+            </div>
+        </div>
+        <ul class="list-group" id="service-status-list"></ul>
+    </body>
+</html>

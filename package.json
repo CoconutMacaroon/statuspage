@@ -6,7 +6,7 @@
     "scripts": {
         "start": "node index.js",
         "lint": "npx prettierx --write .",
-        "scss": "npx sass --style=compressed scss:css",
+        "scss": "npx sass --style=compressed --no-source-map public/scss:public/css",
         "build": "npm run lint && npm run scss"
     },
     "keywords": [],

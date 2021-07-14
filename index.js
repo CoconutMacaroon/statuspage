@@ -1,10 +1,15 @@
 const express = require("express");
-const helpers = require("./helpers");
-const app = express();
-const port = 3000;
+const fs = require("fs");
+const path = require("path");
+let app = express();
+const port = 80;
 
-app.get("/", (req, res) => {
-    res.send(helpers.readTemplateFile("index.html", "utf8", {}));
+var public = path.join(__dirname, "public");
+
+app.use(express.static(public));
+
+app.get("/", function (req, res) {
+    res.sendFile(path.join(public, "index.html"));
 });
 
 app.listen(port, () => {
