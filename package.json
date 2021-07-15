@@ -1,20 +1,23 @@
 {
     "name": "statuspage",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "description": "A web-app to track the status of various web services",
+    "main": "frontend.js",
     "scripts": {
-        "start": "node index.js",
+        "start-frontend": "node frontend.js",
+        "start-backend": "node backend.js",
         "lint": "npx prettierx --write .",
         "scss": "npx sass --style=compressed --no-source-map public/scss:public/css",
         "build": "npm run lint && npm run scss"
     },
     "keywords": [],
-    "author": "",
+    "author": "Arjun V.",
     "license": "ISC",
     "dependencies": {
+        "cors": "^2.8.5",
         "express": "^4.17.1",
         "mustache": "^4.2.0",
+        "needle": "^2.8.0",
         "prettierx": "^0.19.0",
         "sass": "^1.35.2"
     }

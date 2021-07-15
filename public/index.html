@@ -15,6 +15,11 @@
             integrity="sha384-tKLJeE1ALTUwtXlaGjJYM3sejfssWdAaWR2s97axw4xkiAdMzQjtOjgcyw0Y50KU"
             crossorigin="anonymous"
         >
+        <script
+            src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
+            integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+            crossorigin="anonymous"
+        ></script>
         <link rel="stylesheet" href="css/style.css">
         <title>Status Page</title>
     </head>
@@ -24,17 +29,19 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"
         ></script>
+
         <script>
             document.addEventListener("DOMContentLoaded", () => {
-                const serverStatus = JSON.parse(
-                    '{"Dashboard" : "Operational", "Pi-hole" : "Not-operational"}'
-                );
-                const template = `<li class="list-group-item"><div class="d-flex"><span>{{service}}</span><span class="ms-auto text-success">{{status}}</span></div></li>`;
-                let list = "";
-                for (let [service, status] of Object.entries(serverStatus)) {
-                    list += `<li class="list-group-item"><div class="d-flex"><span>${service}</span><span class="ms-auto text-success">${status}</span></div></li>`;
-                }
-                document.getElementById("service-status-list").innerHTML = list;
+                // TODO have frontend talk to API instead of sample data
+                $.getJSON("http://192.168.1.204:8000", (data) => {
+                    let list = "";
+                    data.forEach((item) => {
+                        list += `<li class="list-group-item"><div class="d-flex"><span>${item.name}</span><span class="ms-auto text-success ${item.status}">${item.status}</span></div></li>`;
+                    });
+
+                    document.getElementById("service-status-list").innerHTML =
+                        list;
+                });
             });
         </script>
         <header>
